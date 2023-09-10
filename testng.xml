@@ -4,9 +4,9 @@
   <test thread-count="5" name="Test">
     <classes>
       <!-- <class name="BOBfunctionality.Base"/>-->
-     <class name="testCases.BOBCLcalculator"/>
-      <class name="testCases.BOBHLcalculator"/>
-       <class name="testCases.BobPl1calculator"/>
+     <class name="testCases.SearchFunctionality"/>
+      <!--<class name="testCases.BOBHLcalculator"/>-->
+      <!-- <class name="testCases.BobPl1calculator"/>-->
      <!--<class name="testCases.LinkedTags"/>-->
      <!-- <class name="testCases.SessionsCookies"/>-->
       
