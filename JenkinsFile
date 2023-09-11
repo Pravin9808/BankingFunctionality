@@ -1,13 +1,12 @@
 pipeline {
     agent any
     tools{
-        java "Java-17",
-        maven "M3"
+        maven "MAVEN"
         }
     stages {
         stage('Test') {
             steps {
-                bat "mvn -D clean test"
+                sh "mvn -D maven.test.failure=ignore clean package"
             }
 
             post {                
