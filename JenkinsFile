@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    tool{
+    tools{
         java "Java-17",
         maven "M3"
-    }
+        }
     stages {
         stage('Test') {
             steps {
