@@ -1,12 +1,18 @@
 pipeline {
     agent any
-
+   tool{
+    java "Java-17",
+    maven "M3"
+    }
     stages {
-        stage('Test') {
+        stage('Compile code') {
             steps {
-                sh "mvn clean install"
+                bat "mvn compile"
             }
-
+       stage('Test') {
+            steps {
+                bat "mvn test"
+            }
             post {                
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
@@ -23,6 +29,10 @@ pipeline {
                 }
             }
         }
+    stage('Create build') {
+            steps {
+                bat "mvn package"
+            }
     }
 }
 
