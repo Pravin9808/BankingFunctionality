@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh "mvn -D maven.test.failure=ignore clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
             post {                
