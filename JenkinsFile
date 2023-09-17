@@ -22,11 +22,12 @@ pipeline {
        
     post {
         always{                              
-                emailext to: "pravininteractive25@gmail.com",
-                subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
-                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}",
-               
-                
+               emailext (
+                to: 'pravin.kumar@interactiveavenues.com
+                subject: "Passed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: """<p>Passed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+                )        
             cleanWs()
             }
         }
