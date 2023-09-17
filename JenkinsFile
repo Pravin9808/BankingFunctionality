@@ -5,9 +5,15 @@ pipeline {
         maven "MAVEN"
         }
     stages {
+        stage('clean') {
+            steps {
+                bat "mvn -D clean "
+        
+            }
+        }
         stage('Test') {
             steps {
-                bat "mvn -D clean test"
+                bat "mvn -D test"
         
             }
         }
