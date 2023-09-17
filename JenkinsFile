@@ -10,13 +10,14 @@ pipeline {
                 bat "mvn -D clean test"
             }
         }
+    }
         stages {
         stage('ReportMail') {
             steps {
                 sh "echo 'Hello world,1' >> test.csv"
                     }
             }
-    }
+       }
         post {
             always{
                 archiveArtifacts artifacts: '*.csv', onlyIfSuccessful: true                
@@ -28,8 +29,8 @@ pipeline {
             cleanWs()
             }
         }
-        }   
-    }
-}
+    }   
+    
+
 
 
