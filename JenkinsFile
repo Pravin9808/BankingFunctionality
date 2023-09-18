@@ -8,18 +8,23 @@ pipeline {
         stage('Test') {
             steps {
                 bat "mvn -D clean test"
-                publishHTML target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: false,
-                keepAll: true,
-                reportDir: 'coverage',
-                reportFiles: 'index.html',
-                reportName: 'RCov Report'
-              ]
-        
+                      
             }
+        post {
+            success {
+              // publish html
+              publishHTML target: [
+                  allowMissing: false,
+                  alwaysLinkToLastBuild: false,
+                  keepAll: true,
+                  reportDir: 'coverage',
+                  reportFiles: 'index.html',
+                  reportName: 'RCov Report'
+                ]
+            }
+          }
         }
-        }
+    }
     post {  
          success {  
              //def console_output = "${env.BUILD_URL}/console" 
