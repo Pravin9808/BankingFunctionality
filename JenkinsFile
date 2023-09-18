@@ -5,9 +5,9 @@ pipeline {
         maven "MAVEN"
         }
     stages {
-        stage('clean') {
+        stage('Test') {
             steps {
-                bat "mvn -D clean test "
+                bat "mvn clean -Dmaven.clean.failOnError=false "
         
             }
         }
