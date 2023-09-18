@@ -26,6 +26,8 @@ pipeline {
              mail bcc: '', body: "Details: ${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", cc: '', from: 'pravininteractive25@gmail.com', replyTo: '', subject: 'Failing success Test', to: 'pravin.kumar@interactiveavenues.com'
          }  
     }   
+
+}
     
 
 
