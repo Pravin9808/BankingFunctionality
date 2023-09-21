@@ -4,9 +4,7 @@ pipeline {
         jdk "JAVA_HOME"
         maven "MAVEN"
         }
- environment {
-      path = 'true'
-   }
+ 
     stages {
         stage('Test') {
             steps {
