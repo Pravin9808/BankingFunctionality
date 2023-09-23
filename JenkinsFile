@@ -4,7 +4,14 @@ pipeline {
         jdk "JAVA_HOME"
         maven "MAVEN"
         }
- 
+     stages {
+        stage('Static code Analysis') {
+            steps {
+                bat "mvn -D clean verify sonar:sonar -Dsonar.login=sqa_2b48e809e77b331e1bb0c70c5c3a16ddb839d527"                      
+
+          }
+        }
+    }
     stages {
         stage('Test') {
             steps {
