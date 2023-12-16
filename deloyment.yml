@@ -1,0 +1,36 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: BOBTest
+  namespace: default
+  labels:
+    app: BOBTest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: BOBTest
+  template:
+    metadata:
+      labels:
+        app: BOBTest
+    spec:
+      containers:
+      - name: BOBTest
+        image: "ravindevops/BOBTest-1.0:latest"
+        ports:
+          - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: BOBTest
+  namespace: default
+spec:
+  selector:
+    app: BOBTest
+  type: LoadBalancer
+  ports:
+  - name: http
+    targetPort: 3000
+    port: 80
