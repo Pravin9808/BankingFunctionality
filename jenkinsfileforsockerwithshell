@@ -1,4 +1,4 @@
-pipeline{
+oypipeline{
     agent any
     tools {
         maven 'MAVEN'
