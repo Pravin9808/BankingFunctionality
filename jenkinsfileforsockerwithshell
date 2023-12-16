@@ -31,7 +31,7 @@ oypipeline{
         stage('Deploy App on k8s') {
           steps {
             sshagent(['k8s']) {
-            sh "scp -o StrictHostKeyChecking=no nodejsapp.yaml ubuntu@13.235.234.0:/home/ubuntu"
+            sh "scp -o StrictHostKeyChecking=no deloyment.yaml ubuntu@13.235.234.0:/home/ubuntu"
             script {
                 try{
                     sh "ssh ubuntu@13.235.234.0 kubectl apply -f ."
